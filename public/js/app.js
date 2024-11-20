@@ -27,7 +27,7 @@ weatherFormElement.addEventListener('submit', (e) => {
         return messageOne.textContent = 'You must enter an address!'
     }
 
+    messageTwo.textContent = 'loading message ...';
     messageOne.textContent = ''; messageTwo.textContent = '';
-    messageOne.textContent = 'loading message ...';
     fetchWeatherforecast(location);
 });
