@@ -26,13 +26,14 @@ const weatherForecast = (request, response) => {
         if (error) {
             return response.send({ error });
         }
-        forecast(latitude, longitude, (error, { description, temperature, feels_like } = {}) => {
+        forecast(latitude, longitude, (error, { description, temperature, feels_like, humidity } = {}) => {
             if (error) {
                 return response.send({ error });
             } 
             response.send({
                 location, // shorthand of location: location
-                forecast: `${description}. It is currently ${ temperature } degrees out. It feels like ${feels_like} degrees out`,
+                forecast: `${description}. Temperature is currently ${ temperature } degrees. 
+                            It feels like ${feels_like} degrees outside and humdity is ${humidity}%.`,
                 address: request.query.address
             });
         });
